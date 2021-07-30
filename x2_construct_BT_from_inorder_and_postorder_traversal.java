@@ -1,5 +1,3 @@
-package TREE.TREE_medium;
-
 import java.util.Stack;
 
 public class x2_construct_BT_from_inorder_and_postorder_traversal extends helper {

@@ -1,5 +1,3 @@
-package TREE.TREE_medium;
-
 /*
 ===========================================================
 PROBLEM:) 951
@@ -23,40 +21,40 @@ Space : O(h)
 */
 public class x12_flip_equivalent_BT extends helper {
 
- public static boolean flipEquiv(treeNode root1, treeNode root2) {
-  if (root1 == null && root2 == null) {
-   return true;
+  public static boolean flipEquiv(treeNode root1, treeNode root2) {
+    if (root1 == null && root2 == null) {
+      return true;
+    }
+
+    if (root1 == null || root2 == null) {
+      return false;
+    }
+
+    return root1.data == root2.data && (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)
+        || flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
   }
 
-  if (root1 == null || root2 == null) {
-   return false;
+  public static void main(String[] args) {
+    treeNode root1 = new treeNode(3);
+    root1.left = new treeNode(2);
+    root1.right = new treeNode(3);
+    root1.right.left = new treeNode(6);
+    root1.left.left = new treeNode(4);
+    root1.left.right = new treeNode(5);
+    root1.left.right.left = new treeNode(7);
+    root1.left.right.right = new treeNode(8);
+
+    treeNode root2 = new treeNode(3);
+    root2.right = new treeNode(2);
+    root2.left = new treeNode(3);
+    root2.left.right = new treeNode(6);
+    root2.right.left = new treeNode(4);
+    root2.right.right = new treeNode(5);
+    root2.right.right.left = new treeNode(8);
+    root2.right.right.right = new treeNode(7);
+
+    System.out.println(flipEquiv(root1, root2));
+
   }
-
-  return root1.data == root2.data && (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)
-    || flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
- }
-
- public static void main(String[] args) {
-  treeNode root1 = new treeNode(3);
-  root1.left = new treeNode(2);
-  root1.right = new treeNode(3);
-  root1.right.left = new treeNode(6);
-  root1.left.left = new treeNode(4);
-  root1.left.right = new treeNode(5);
-  root1.left.right.left = new treeNode(7);
-  root1.left.right.right = new treeNode(8);
-
-  treeNode root2 = new treeNode(3);
-  root2.right = new treeNode(2);
-  root2.left = new treeNode(3);
-  root2.left.right = new treeNode(6);
-  root2.right.left = new treeNode(4);
-  root2.right.right = new treeNode(5);
-  root2.right.right.left = new treeNode(8);
-  root2.right.right.right = new treeNode(7);
-
-  System.out.println(flipEquiv(root1, root2));
-
- }
 
 }

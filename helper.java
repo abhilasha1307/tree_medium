@@ -1,5 +1,3 @@
-package TREE.TREE_medium;
-
 public class helper {
  public static class treeNode {
   int data;

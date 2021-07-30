@@ -1,5 +1,3 @@
-package TREE.TREE_medium;
-
 /*
 ================================================
 PROBLEM:)
@@ -31,44 +29,44 @@ APPROACH:)
 */
 
 public class x22_insert_in_a_BST extends helper {
- treeNode root;
+    treeNode root;
 
- public static treeNode insertIntoBST(treeNode root, int val) {
-  if (root == null) {
-   root = new treeNode(val);
-   return root;
-  }
+    public static treeNode insertIntoBST(treeNode root, int val) {
+        if (root == null) {
+            root = new treeNode(val);
+            return root;
+        }
 
-  if (val > root.data) {
-   root.right = insertIntoBST(root.right, val);
-  }
+        if (val > root.data) {
+            root.right = insertIntoBST(root.right, val);
+        }
 
-  else if (val < root.data) {
-   root.left = insertIntoBST(root.left, val);
-  }
+        else if (val < root.data) {
+            root.left = insertIntoBST(root.left, val);
+        }
 
-  return root;
- }
+        return root;
+    }
 
- public static void inorder(treeNode node) {
-  if (node != null) {
-   inorder(node.left);
-   System.out.print(node.data + " ");
-   inorder(node.right);
-  }
- }
+    public static void inorder(treeNode node) {
+        if (node != null) {
+            inorder(node.left);
+            System.out.print(node.data + " ");
+            inorder(node.right);
+        }
+    }
 
- public static void main(String[] args) {
-  x22_insert_in_a_BST obj = new x22_insert_in_a_BST();
-  obj.root = new treeNode(4);
-  obj.root.left = new treeNode(2);
-  obj.root.right = new treeNode(7);
-  obj.root.left.left = new treeNode(1);
-  obj.root.left.right = new treeNode(3);
+    public static void main(String[] args) {
+        x22_insert_in_a_BST obj = new x22_insert_in_a_BST();
+        obj.root = new treeNode(4);
+        obj.root.left = new treeNode(2);
+        obj.root.right = new treeNode(7);
+        obj.root.left.left = new treeNode(1);
+        obj.root.left.right = new treeNode(3);
 
-  int key = 5;
-  treeNode node = insertIntoBST(obj.root, key);
-  inorder(node);
+        int key = 5;
+        treeNode node = insertIntoBST(obj.root, key);
+        inorder(node);
 
- }
+    }
 }

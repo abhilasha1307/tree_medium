@@ -1,6 +1,3 @@
-package TREE.TREE_medium;
-//iterative 
-
 /*
 ======================================================
 PROBLEM:) 1302

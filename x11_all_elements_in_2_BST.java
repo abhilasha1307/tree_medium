@@ -1,5 +1,3 @@
-package TREE.TREE_medium;
-
 import java.util.*;
 //look for better solutions if any
 

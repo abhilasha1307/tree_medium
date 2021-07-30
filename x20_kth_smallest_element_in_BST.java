@@ -1,6 +1,3 @@
-package TREE.TREE_medium;
-
-// study LRU caching
 import java.util.*;
 
 /*

@@ -1,6 +1,3 @@
-package TREE.TREE_medium;
-
-// see other sol
 //map ,recursive, making a custom class, bfs
 /*
 ====================================================

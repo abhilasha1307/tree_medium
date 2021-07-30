@@ -1,5 +1,3 @@
-package TREE.TREE_medium;
-
 /*
 ====================================================
 PROBLEM:) 687
@@ -19,59 +17,40 @@ APPROACH:)
 
 
 */
-*
+
 public class x18_longest_univalue_path extends helper {
- int longestPath = 0;
-
- public int longestUnivaluePath(treeNode root) {
-
-  if (root == null) {
-   return 0;
-  }
-
-  if (root.left == null && root.right == null) {
-   return 1;
-  }
-
-  return Util(root);
-
- }
-
- public int Util(treeNode root) {
-  if (root == null) {
-   return 0;
-  }
-
-  int Left_path = 0;
-  int Right_path = 0;
-  int Path = 0;
-
-  int val = root.data;
-
-  if (root.left != null && root.left.data == val) {
-   return Util(root.left) + 1;
-  }
-
-  if (root.right != null && root.right.data == val) {
-   return Util(root.right) + 1;
-  }
-
-  Left_path += Util(root.left);
-  Right_path += Util(root.right);
-  Path = Left_path + Right_path;
-
-  return longestPath = Math.max(Path, longestPath);
- }
-
  public static void main(String[] args) {
   treeNode root = new treeNode(5);
   root.left = new treeNode(4);
-  root.left.left = new treeNode(4);
-  root.left.right = new treeNode(4);
+  root.left.left = new treeNode(1);
+  root.left.right = new treeNode(1);
   root.right = new treeNode(5);
   root.right.right = new treeNode(5);
-  x18_longest_univalue_path obj = new x18_longest_univalue_path();
-  System.out.println(obj.longestUnivaluePath(root));
+
+  System.out.println(longestUnivaluePath(root));
  }
 
+ static int ans;
+
+ public static int longestUnivaluePath(treeNode root) {
+  ans = 0;
+  arrowLength(root);
+  return ans;
+ }
+
+ public static int arrowLength(treeNode node) {
+  if (node == null)
+   return 0;
+  int left = arrowLength(node.left);
+  int right = arrowLength(node.right);
+  int arrowLeft = 0, arrowRight = 0;
+  if (node.left != null && node.left.data == node.data) {
+   arrowLeft += left + 1;
+  }
+  if (node.right != null && node.right.data == node.data) {
+   arrowRight += right + 1;
+  }
+  ans = Math.max(ans, arrowLeft + arrowRight);
+  return Math.max(arrowLeft, arrowRight);
+ }
 }
